@@ -30,6 +30,7 @@
         const tasksDiv=document.querySelector(".tasks-div");
         //const toDoList=["hw","service"];
         window.onload=()=>{
+          //The empty array [] is used as a default value in case localStorage.getItem("toDoList") returns null.
           toDoList=JSON.parse(localStorage.getItem("toDoList"))||[];
           render_data();
 }
