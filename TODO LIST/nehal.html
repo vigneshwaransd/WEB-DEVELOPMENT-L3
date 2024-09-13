@@ -28,7 +28,12 @@
       <script>
         const taskInput=document.querySelector("input");
         const tasksDiv=document.querySelector(".tasks-div");
-        const toDoList=["hw","service"];
+        //const toDoList=["hw","service"];
+        window.onload=()=>{
+          toDoList=JSON.parse(localStorage.getItem("toDoList"))||[];
+          render_data();
+}
+
         function render_data(){
             let data="";
             toDoList.forEach((values)=>{
@@ -39,12 +44,14 @@
             taskInput.value="";
             strike_data();
             delete_data();
+            localStorage.setItem("toDoList",JSON.stringify(toDoList));
         }
 
        // render_data();
         function add_data(){
             toDoList.push(taskInput.value);
             render_data();
+            
          
         }
 
